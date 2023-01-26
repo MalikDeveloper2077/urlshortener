@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+  <div class="card mt-5">
+    <div class="card-header text-center py-3">
+      <h1>Сократите URL</h1>
+    </div>
+
+    <div class="px-3 py-4">
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="row g-1">
+          <div class="col-10">
+            <input type="text" class="form-control" name="url" placeholder="URL" style="width: 80%" required>
+          </div>
+          <div class="col-2">
+            <button class="btn btn-success btn-lg w-100" type="submit">
+              Перевоплотить
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  {% if url %}
+  <div class="mx-auto text-center mt-5">
+    <h2>Ваша сокращенная ссылка: <a href="/{{url.short_url}}">
+      {{ request.scheme }}://{{ request.get_host }}/{{ url.short_url }}
+    </a></h2>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

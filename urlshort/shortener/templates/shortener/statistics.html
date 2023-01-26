@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+  {% for url in object_list %}
+  <div class="row">
+  <div class="col-4" style="border-right: 1px solid black; word-break: break-all">{{ url.original_url }}</div>
+  <div class="col-4" style="border-right: 1px solid black;">{{ request.scheme }}://{{ request.get_host }}/{{ url.short_url }}</div>
+  <div class="col-4">{{ url.follow_count }}</div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
