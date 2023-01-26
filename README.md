@@ -1,6 +1,6 @@
 # Start  
-> pip install -r requirements.txt (django)  
-> python manage.py runserver  
+> ```pip install -r requirements.txt``` (django)   
+> ```python manage.py runserver```  
 
 # Pages  
 * localhost:8000/shortener - сократить ссылку  
